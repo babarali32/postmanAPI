@@ -1,0 +1,508 @@
+{
+	"info": {
+		"_postman_id": "4b842318-ff44-4ead-aef0-56f7232fb92c",
+		"name": "Batch11",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32463082"
+	},
+	"item": [
+		{
+			"name": "CreateAdminUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"pakistan\",\r\n  \"email\": \"test@12345678.com\",\r\n  \"password\": \"pakistaN32\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{QAEnvironment}}/createUser.php ",
+					"host": [
+						"{{QAEnvironment}}"
+					],
+					"path": [
+						"createUser.php "
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "CreateAdminUser",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"test@12345678.com\",\r\n  \"password\": \"pakistaN32\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{QAEnvironment}}/generateToken.php ",
+							"host": [
+								"{{QAEnvironment}}"
+							],
+							"path": [
+								"generateToken.php "
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 21 Jan 2024 16:44:01 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) PHP/7.2.18"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.2.18"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "105"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Message\": \"User Created\",\n    \"user\": {\n        \"name\": \"pakistan\",\n        \"email\": \"test@12345678.com\",\n        \"password\": \"pakistaN32\"\n    }\n}"
+				},
+				{
+					"name": "CreateToken",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"test@12345678.com\",\r\n  \"password\": \"pakistaN32\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "hrm.syntaxtechs.net/syntaxapi/api/generateToken.php ",
+							"host": [
+								"hrm",
+								"syntaxtechs",
+								"net"
+							],
+							"path": [
+								"syntaxapi",
+								"api",
+								"generateToken.php "
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 24 Jan 2024 08:05:31 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) PHP/7.2.18"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.2.18"
+						},
+						{
+							"key": "Access-control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "185"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDYwODM1MzEsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTcwNjEyNjczMSwidXNlcklkIjoiNjM5NSJ9.-LZTXYD6T_Lj7t72Y9p7oqQFf5HJO33PpJRR7kIiEik\"\n}"
+				}
+			]
+		},
+		{
+			"name": "CreateNewEmployee",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDYyNDcxMzksImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTcwNjI5MDMzOSwidXNlcklkIjoiNjM5NSJ9.h_b2Mkr81Nn1mR7OjIlRufzerHlFmhPn5zUX2OIIfKo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"emp_firstname\": \"twa123\",\r\n  \"emp_lastname\": \"twi123\",\r\n  \"emp_middle_name\": \"two123\",\r\n  \"emp_gender\": \"F\",\r\n  \"emp_birthday\": \"2020-01-24\",\r\n  \"emp_status\": \"single\",\r\n  \"emp_job_title\": \"ceo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "hrm.syntaxtechs.net/syntaxapi/api/createEmployee.php",
+					"host": [
+						"hrm",
+						"syntaxtechs",
+						"net"
+					],
+					"path": [
+						"syntaxapi",
+						"api",
+						"createEmployee.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetOneEmployee",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDYxOTExMjUsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTcwNjIzNDMyNSwidXNlcklkIjoiNjM5NSJ9.Rfy9j9ZoFgVGtVbkjdLRwUjBFl1Svywri_EThokk6j8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "hrm.syntaxtechs.net/syntaxapi/api/getOneEmployee.php?employee_id=103418A",
+					"host": [
+						"hrm",
+						"syntaxtechs",
+						"net"
+					],
+					"path": [
+						"syntaxapi",
+						"api",
+						"getOneEmployee.php"
+					],
+					"query": [
+						{
+							"key": "employee_id",
+							"value": "103418A"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllEmployees",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDYxOTExMjUsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTcwNjIzNDMyNSwidXNlcklkIjoiNjM5NSJ9.Rfy9j9ZoFgVGtVbkjdLRwUjBFl1Svywri_EThokk6j8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "hrm.syntaxtechs.net/syntaxapi/api/getAllEmployees.php",
+					"host": [
+						"hrm",
+						"syntaxtechs",
+						"net"
+					],
+					"path": [
+						"syntaxapi",
+						"api",
+						"getAllEmployees.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetEmployeementStatus",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDYxOTExMjUsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTcwNjIzNDMyNSwidXNlcklkIjoiNjM5NSJ9.Rfy9j9ZoFgVGtVbkjdLRwUjBFl1Svywri_EThokk6j8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "hrm.syntaxtechs.net/syntaxapi/api/employeementStatus.php",
+					"host": [
+						"hrm",
+						"syntaxtechs",
+						"net"
+					],
+					"path": [
+						"syntaxapi",
+						"api",
+						"employeementStatus.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EmployeeJobTitles",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDYxOTUyMTksImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTcwNjIzODQxOSwidXNlcklkIjoiNjM5NSJ9.t8dmJoVOZBt2togsXdDRsRDwIMr9bZERzgHFaCzvKcU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "hrm.syntaxtechs.net/syntaxapi/api/jobTitle.php",
+					"host": [
+						"hrm",
+						"syntaxtechs",
+						"net"
+					],
+					"path": [
+						"syntaxapi",
+						"api",
+						"jobTitle.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateEmployeeData",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDYyMzg5NDAsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTcwNjI4MjE0MCwidXNlcklkIjoiNjM5NSJ9.MDp4hb1d-MkJZ3cN8xKrj7xL5cfaHm0KCs1l5qbElrE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"employee_id\": \"103418A\",\r\n  \"emp_firstname\": \"trumpi\",\r\n  \"emp_lastname\": \"trumpo\",\r\n  \"emp_middle_name\": \"trumpu\",\r\n  \"emp_gender\": \"M\",\r\n  \"emp_birthday\": \"2000-01-26\",\r\n  \"emp_status\": \"unemployeed\",\r\n  \"emp_job_title\": \"widow\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "hrm.syntaxtechs.net/syntaxapi/api/updateEmployee.php",
+					"host": [
+						"hrm",
+						"syntaxtechs",
+						"net"
+					],
+					"path": [
+						"syntaxapi",
+						"api",
+						"updateEmployee.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateParialDataofEmployee",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteEmployee",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDYyNDcxMzksImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTcwNjI5MDMzOSwidXNlcklkIjoiNjM5NSJ9.h_b2Mkr81Nn1mR7OjIlRufzerHlFmhPn5zUX2OIIfKo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "hrm.syntaxtechs.net/syntaxapi/api/deleteEmployee.php?employee_id=103418A",
+					"host": [
+						"hrm",
+						"syntaxtechs",
+						"net"
+					],
+					"path": [
+						"syntaxapi",
+						"api",
+						"deleteEmployee.php"
+					],
+					"query": [
+						{
+							"key": "employee_id",
+							"value": "103418A"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
