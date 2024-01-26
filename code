@@ -1,0 +1,549 @@
+{
+	"info": {
+		"_postman_id": "4b842318-ff44-4ead-aef0-56f7232fb92c",
+		"name": "Batch11",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32463082"
+	},
+	"item": [
+		{
+			"name": "CreateAdminUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"pakistan\",\r\n  \"email\": \"test8998u@12345678.com\",\r\n  \"password\": \"pakistaN32\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{variable-name}}{{CreateAdmin}} ",
+					"host": [
+						"{{variable-name}}{{CreateAdmin}} "
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "CreateToken",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"test@12345678.com\",\r\n  \"password\": \"pakistaN32\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{variable-name}}{{GenerateToken}}",
+							"host": [
+								"{{variable-name}}{{GenerateToken}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 24 Jan 2024 08:05:31 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) PHP/7.2.18"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.2.18"
+						},
+						{
+							"key": "Access-control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "185"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDYwODM1MzEsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTcwNjEyNjczMSwidXNlcklkIjoiNjM5NSJ9.-LZTXYD6T_Lj7t72Y9p7oqQFf5HJO33PpJRR7kIiEik\"\n}"
+				}
+			]
+		},
+		{
+			"name": "CreateNewEmployee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Message\");\r",
+							"});\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{JWT}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"emp_firstname\": \"twa123\",\r\n  \"emp_lastname\": \"twi123\",\r\n  \"emp_middle_name\": \"two123\",\r\n  \"emp_gender\": \"F\",\r\n  \"emp_birthday\": \"2020-01-24\",\r\n  \"emp_status\": \"single\",\r\n  \"emp_job_title\": \"ceo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{variable-name}}{{CreateNewEmployee}}",
+					"host": [
+						"{{variable-name}}{{CreateNewEmployee}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetOneEmployee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{JWT}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{variable-name}}{{GetOneEmployee}}?employee_id=103565A",
+					"host": [
+						"{{variable-name}}{{GetOneEmployee}}"
+					],
+					"query": [
+						{
+							"key": "employee_id",
+							"value": "103565A"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllEmployees",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{JWT}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{variable-name}}{{GetAllEmployee}}",
+					"host": [
+						"{{variable-name}}{{GetAllEmployee}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetEmployeementStatus",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{JWT}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{variable-name}}{{GetEmployeeStatus}}",
+					"host": [
+						"{{variable-name}}{{GetEmployeeStatus}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EmployeeJobTitles",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{JWT}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{variable-name}}{{JobTitile}}",
+					"host": [
+						"{{variable-name}}{{JobTitile}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateEmployeeData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{JWT}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"employee_id\": \"103559A\",\r\n  \"emp_firstname\": \"trumpi\",\r\n  \"emp_lastname\": \"trumpo\",\r\n  \"emp_middle_name\": \"trumpu\",\r\n  \"emp_gender\": \"M\",\r\n  \"emp_birthday\": \"2000-01-26\",\r\n  \"emp_status\": \"unemployeed\",\r\n  \"emp_job_title\": \"widow\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{variable-name}}{{UpdateEmployee}}?employee_id=103565A",
+					"host": [
+						"{{variable-name}}{{UpdateEmployee}}"
+					],
+					"query": [
+						{
+							"key": "employee_id",
+							"value": "103565A"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateParialDataofEmployee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{JWT}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"employee_id\": \"103559A\",\r\n  \"emp_firstname\": \"foura\",\r\n  \"emp_lastname\": \"fouri\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{variable-name}}{{PartialUpdateEmployee}}?employee_id=103565A",
+					"host": [
+						"{{variable-name}}{{PartialUpdateEmployee}}"
+					],
+					"query": [
+						{
+							"key": "employee_id",
+							"value": "103565A"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteEmployee",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDYyNDcxMzksImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTcwNjI5MDMzOSwidXNlcklkIjoiNjM5NSJ9.h_b2Mkr81Nn1mR7OjIlRufzerHlFmhPn5zUX2OIIfKo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{variable-name}}{{DeleteEmployee}}",
+					"host": [
+						"{{variable-name}}{{DeleteEmployee}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{variable-name}}{{GenerateToken}}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"token\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDYwODM1MzEsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTcwNjEyNjczMSwidXNlcklkIjoiNjM5NSJ9.-LZTXYD6T_Lj7t72Y9p7oqQFf5HJO33PpJRR7kIiEik",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"test@12345678.com\",\r\n  \"password\": \"pakistaN32\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{variable-name}}{{GenerateToken}}",
+					"host": [
+						"{{variable-name}}{{GenerateToken}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
